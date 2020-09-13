@@ -1,3 +1,4 @@
-TOKEN = '1312001225:AAG8lULmUJ-VembJlBhsaRc2R0Rd7Oj5x-8'
+
+TOKEN = '1202298386:AAHt5-MbIMJei04F3GuA-45owEP0BBimq_8'
 DB_PARAMS = ['faredpro.beget.tech', 'faredpro_sportv',
              'sport1804*', 'faredpro_sportv']
