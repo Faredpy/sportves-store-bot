@@ -1,5 +1,16 @@
 import pymysql
+#import mysql.connector
 from config import *
+
+#config = {
+#  'user': 'root',
+#  'password': 'root',
+#  'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
+#  'database': 'sportves',
+#  'raise_on_warnings': True,
+#}
+
+#link = mysql.connector.connect(**config)
 
 
 class Category:
@@ -10,7 +21,10 @@ class Category:
 
 def connect_db(method):
     try:
-        connect = pymysql.connect(*DB_PARAMS)
+        connection = pymysql.connect(user='root',
+                                     password='root',
+                                     unix_socket='/Applications/MAMP/tmp/mysql/mysql.sock',
+                                     db='sportves')
     except pymysql.OperationalError:
         print('Подключится неудалось!')
 
@@ -19,9 +33,9 @@ def connect_db(method):
 
         def getCategory():
             try:
-                cursor = connect.cursor()
+                cursor = connection.cursor()
                 cursor.execute(
-                    "SELECT * FROM oc_category_description WHERE category_id IN(59, 70, 79)")
+                    "SELECT * FROM oc_category_description WHERE category_id IN(60, 70, 79)")
                 rows = cursor.fetchall()
                 for row in rows:
                     categoryId = "{0}".format(row[0])
